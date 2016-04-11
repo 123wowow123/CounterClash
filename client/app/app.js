@@ -11,7 +11,8 @@ angular.module('counterclashApp', [
   'btford.socket-io',
   'ui.router',
   'ui.bootstrap',
-  'validation.match'
+  'validation.match',
+  'angular.filter'
 ])
   .config(function($urlRouterProvider, $locationProvider) {
     $urlRouterProvider

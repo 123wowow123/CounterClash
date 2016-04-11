@@ -4,7 +4,7 @@
 
 	class CardsController {
 		constructor(Card) {
-    // Use the User $resource to fetch all users
+    // Use the User $resource to fetch all cards
     this.cards = Card.query();
 }
 }

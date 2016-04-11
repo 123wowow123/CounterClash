@@ -3,8 +3,8 @@
 (function() {
 
 function CardResource($resource) {
-  return $resource('/api/cards/:id/:controller', {
-    id: '@_id'
+  return $resource('/api/cards/:name', {
+    name: '@name'
   });
 }
 

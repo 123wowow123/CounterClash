@@ -1,5 +1,32 @@
-<ul class="card-list clearfix">
-	<li ng-repeat="card in vm.cards">
-		<img ng-src="assets/cards/{{card.image}}" alt="{{card.name}}" title="{{card.name}}"/>
-	</li>
-</ul>
+<div class="container">
+	<div class="row">
+		<div class="col-lg-9 rarity-select">
+			<form class="form">
+				<div class="form-group">
+					<label>Rarity:</label>
+					<button type="button" ng-click="rarity=null" class="btn btn-link all">All</button>
+					<button type="button" ng-click="rarity=1" class="btn btn-link common">Common</button>
+					<button type="button" ng-click="rarity=2" class="btn btn-link rare">Rare</button>
+					<button type="button" ng-click="rarity=3" class="btn btn-link epic">Epic</button>
+					<button type="button" ng-click="rarity=4" class="btn btn-link legendary">Legendary</button>
+				</div>
+			</form>
+		</div>
+		<div class="col-lg-3">
+			<form class="form">
+				<div class="form-group">
+					<input ng-model="query" type="text" class="form-control" placeholder="name or elixir">
+				</div>
+			</form>
+		</div>
+	</div>
+	<div class="row">
+		<ul class="card-list clearfix">
+			<li ng-repeat="card in vm.cards | filterBy: ['name', 'elixir']: query | filterBy: ['rarityid']: rarity">
+				<a ui-sref="detail({name: card.name})">
+					<img ng-src="assets/cards/{{card.image}}" alt="{{card.name}}" title="{{card.name}}"/>
+				</a>
+			</li>
+		</ul>
+	</div>
+</div>

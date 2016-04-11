@@ -1,7 +1,44 @@
-ul.card-list li{
-	float: left;
-	list-style: none;
-	width:225px;
-	height: 275px;
-	text-align: center;
+ul.card-list{
+	padding-left: 0;
+	margin-left: auto;
+	margin-right: auto;
+	li{
+		float: left;
+		list-style: none;
+		width:225px;
+		height: 275px;
+		text-align: center;
+	}
+}
+.btn-bold{
+	font-weight: bold;
+	padding-left: 3px;
+	padding-right: 3px;
+}
+.rarity-select{
+	label{
+		//hack to get label to align
+		vertical-align: text-top;
+		margin-right: 5px;
+	}
+	.all{
+		color: #999;
+		@extend .btn-bold;
+	}
+	.common{
+		color: #9cf;
+		@extend .btn-bold;
+	}
+	.rare{
+		color: #fc6;
+		@extend .btn-bold;
+	}
+	.epic{
+		color: #f9f;
+		@extend .btn-bold;
+	}
+	.legendary{
+		color: #03b300;
+		@extend .btn-bold;
+	}
 }

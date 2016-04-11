@@ -69,7 +69,7 @@ export function index(req, res) {
 export function show(req, res) {
   return Card.find({
     where: {
-      _id: req.params.id
+      id: req.params.id
     }
   })
     .then(handleEntityNotFound(res))
@@ -77,4 +77,14 @@ export function show(req, res) {
     .catch(handleError(res));
 }
 
-
+// Gets a single Cards from the DB
+export function showByName(req, res) {
+  return Card.find({
+    where: {
+      name: req.params.name
+    }
+  })
+    .then(handleEntityNotFound(res))
+    .then(respondWithResult(res))
+    .catch(handleError(res));
+}
