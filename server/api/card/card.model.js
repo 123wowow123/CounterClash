@@ -1,7 +1,7 @@
 'use strict';
 
 export default function(sequelize, DataTypes) {
-  return sequelize.define('card', {
+  return sequelize.define('Card', {
     id: {
       type: DataTypes.INTEGER,
       allowNull: false,

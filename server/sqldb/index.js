@@ -17,5 +17,6 @@
 db.Thing = db.sequelize.import('../api/thing/thing.model');
 db.User = db.sequelize.import('../api/user/user.model');
 db.Card = db.sequelize.import('../api/card/card.model');
+db.Stat = db.sequelize.import('../api/stat/stat.model');
 
 module.exports = db;

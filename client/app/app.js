@@ -5,6 +5,7 @@ angular.module('counterclashApp', [
   'counterclashApp.admin',
   'counterclashApp.constants',
   'counterclashApp.card',
+  'counterclashApp.cardStat',
   'ngCookies',
   'ngResource',
   'ngSanitize',

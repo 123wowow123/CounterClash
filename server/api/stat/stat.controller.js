@@ -1,16 +1,16 @@
 /**
  * Using Rails-like standard naming convention for endpoints.
- * GET     /api/cards              ->  index
- * POST    /api/cards              ->  create
- * GET     /api/cards/:id          ->  show
- * PUT     /api/cards/:id          ->  update
- * DELETE  /api/cards/:id          ->  destroy
+ * GET     /api/stat              ->  index
+ * POST    /api/stat              ->  create
+ * GET     /api/stat/:id          ->  show
+ * PUT     /api/stat/:id          ->  update
+ * DELETE  /api/stat/:id          ->  destroy
  */
 
 'use strict';
 
 import _ from 'lodash';
-import {Card, Stat} from '../../sqldb';
+import {Stat} from '../../sqldb';
 
 function respondWithResult(res, statusCode) {
   statusCode = statusCode || 200;
@@ -60,14 +60,14 @@ function handleError(res, statusCode) {
 
 // Gets a list of Cards
 export function index(req, res) {
-  return Card.findAll()
+  return Stat.findAll()
     .then(respondWithResult(res))
     .catch(handleError(res));
 }
 
 // Gets a single Cards from the DB
 export function show(req, res) {
-  return Card.find({
+  return Stat.find({
     where: {
       id: req.params.id
     }
@@ -79,25 +79,7 @@ export function show(req, res) {
 
 // Gets a single Cards from the DB
 export function showByName(req, res) {
-  return Card.find({
-    where: {
-      name: req.params.name
-    }
-  })
-    .then(handleEntityNotFound(res))
-    .then(respondWithResult(res))
-    .catch(handleError(res));
-}
-
-
-Card.hasMany(Stat);
-
-// Gets a single Cards from the DB
-export function showByNameIncludeStat(req, res) {
-  return Card.findALL({
-    include: [{
-      modal: Stat
-    }],
+  return Stat.find({
     where: {
       name: req.params.name
     }
